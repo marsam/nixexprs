@@ -1,5 +1,5 @@
 { stdenv, lib, fetchgit, fetchurl, makeWrapper,
-  ocaml, unzip, ncurses, curl, aspcud
+  ocaml, unzip, ncurses, curl, aspcud, libcxx
 }:
 
 assert lib.versionAtLeast ocaml.version "4.02.3";
@@ -60,6 +60,8 @@ in stdenv.mkDerivation rec {
   version = "2.0.0-beta5";
 
   buildInputs = [ unzip curl ncurses ocaml makeWrapper ];
+
+  NIX_CFLAGS_COMPILE = lib.optional stdenv.isDarwin "-I${libcxx}/include/c++/v1";
 
   src = srcs.opam;
 
