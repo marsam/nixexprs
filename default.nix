@@ -20,6 +20,8 @@ let
     kremlin = callPackage ./pkgs/kremlin { };
     opam = callPackage ./pkgs/opam { };
 
+    home-manager = callPackage ./pkgs/home-manager { };
+
     shadowsocks-libev = callPackage ./pkgs/shadowsocks-libev { };
     shadowsocks-rust = callPackage ./pkgs/shadowsocks-rust { };
   };
